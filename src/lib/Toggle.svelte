@@ -1,7 +1,13 @@
-<label>
-  <input type="checkbox">
+<script>
+  export let label = "";
+  export let isToggled = false;
+  export let style = "";
+</script>
+
+<label {style} >
+  <input type="checkbox" bind:checked={isToggled} />
   <div class="toggle"></div>
-  Toggle
+  {label}
 </label>
 
 
@@ -21,6 +27,7 @@
     border: solid 1px #0077b6;
     transition: background-color 0.3s ease;
     margin-right: 5px;
+    background-color: var(--toggleBackgroundColor, white);
   }
 
   .toggle::after {
@@ -31,7 +38,7 @@
     width: var(--height);
     height: var(--height);
     border-radius: var(--radius);
-    background-color: #023e8a;
+    background-color: var(--toggleButtonColor,#023e8a);
     box-shadow: 1px 1px  5px rgba(0,0,0,0.3);
     transition: transform 0.3s ease;
   }
@@ -41,7 +48,7 @@
   }
 
   input:checked + .toggle {
-    background-color: #ade8f4;
+    background-color: var(--toggleCheckedBackgroundColor, #ade8f4);
   }
 
   input:checked + .toggle::after {
