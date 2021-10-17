@@ -10,6 +10,7 @@
     --width: 40px;
     --height: calc(var(--width) / 2);
     --radius: calc(var(--height) / 2);
+    display: flex;
   }
 
   .toggle {
@@ -19,13 +20,14 @@
     border-radius: var(--radius);
     border: solid 1px #0077b6;
     transition: background-color 0.3s ease;
+    margin-right: 5px;
   }
 
   .toggle::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -1px;
+    left: -1px;
     width: var(--height);
     height: var(--height);
     border-radius: var(--radius);
