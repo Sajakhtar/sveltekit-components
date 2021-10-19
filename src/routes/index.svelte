@@ -1,6 +1,7 @@
 <script>
   import Toggle from '$lib/Toggle.svelte';
   import Accordion from '$lib/Accordion.svelte';
+  import BetterAccordion from '$lib/BetterAccordion.svelte';
 
   let isToggled = false;
 </script>
@@ -20,3 +21,9 @@
 {#if isToggled}
   <h1>I'm toggled</h1>
 {/if}
+
+<BetterAccordion isOpen={false} buttonText={"Better Accordion: FAQ- How to reset password?"} >
+  <div>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem reprehenderit fugiat sed voluptatem nobis aspernatur dolore accusamus atque dolores corporis ullam, totam optio facilis esse maiores inventore, laudantium consequuntur laboriosam!</p>
+  </div>
+</BetterAccordion>
