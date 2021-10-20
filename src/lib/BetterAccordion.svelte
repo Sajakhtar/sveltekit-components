@@ -11,13 +11,24 @@
   {buttonText}
 </button>
 
-<div class="accordion-content" use:slide={isOpen}>
-  <slot />
+<div class="accordion-content" use:slide={{ isOpen, duration: 200 }} on:animationEnd={() => console.log('animation ended')}>
+  <div class="wrapper">
+    <slot />
+  </div>
 </div>
 
-
+<div class="accordion-content" use:slide={{ isOpen }} on:animationEnd={() => console.log('animation ended')}>
+  <div class="wrapper">
+    <slot />
+  </div>
+</div>
 
 <style>
+
+  .wrapper {
+    padding: 20px;
+  }
+
   button {
     display: block;
     border: 0;
