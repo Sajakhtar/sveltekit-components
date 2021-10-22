@@ -15,6 +15,6 @@
 
 <ul>
   {#each filteredSearch as item}
-  <li>{item}</li>
+  <li on:click={() => search = item}>{item}</li>
   {/each}
 </ul>
