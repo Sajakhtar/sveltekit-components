@@ -1,7 +1,7 @@
 <script>
   import { fade } from 'svelte/transition';
   export let items;
-  let search =  '';
+  export let search =  '';
   let isFocused = false;
 
   $: filteredSearch = items.filter((item) => {
@@ -9,21 +9,50 @@
   });
 </script>
 
-<label>
-  Search names:
-  <br>
-  <input type="text" bind:value={search} on:focus={() => (isFocused = true)} />
-</label>
+<div class="wrapper">
+  <label>
+    Search names:
+    <br>
+    <input type="text" bind:value={search} on:focus={() => (isFocused = true)} on:blur={() => (isFocused = false)} />
+  </label>
 
-{#if isFocused}
+  {#if isFocused}
   <ul transition:fade={{ duration: 200 }} >
     {#each filteredSearch as item}
     <li
-      transition:fade={{ duration: 200 }}
-      on:click={() => {
+    transition:fade={{ duration: 200 }}
+    on:click={() => {
       search = item;
       isFocused = false;
-      }}>{item}</li>
+    }}>{item}</li>
     {/each}
   </ul>
-{/if}
+  {/if}
+</div>
+
+
+<style>
+  .wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  ul {
+    position: aboslute;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    border: solid 1px black;
+  }
+
+  li {
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s background ease;
+  }
+
+  li:hover {
+    background: var(--listItemBackground, #eee);
+  }
+
+</style>

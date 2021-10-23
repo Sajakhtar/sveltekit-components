@@ -6,6 +6,7 @@
 
   let isToggled = false;
 
+  let search = '';
   let items = ['Jack', 'Jon', 'Jill', 'Jane', 'Joe ', 'Jim', 'John', 'Jen'];
 </script>
 
@@ -31,5 +32,5 @@
   </div>
 </BetterAccordion> -->
 
-
-<SearchFilter {items} />
+<p>Current search: {search}</p>
+<SearchFilter {items} bind:search />
