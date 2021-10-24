@@ -3,6 +3,7 @@
   import Accordion from '$lib/Accordion.svelte';
   import BetterAccordion from '$lib/BetterAccordion.svelte';
   import SearchFilter from '$lib/SearchFilter.svelte';
+  import Field from '$lib/Field.svelte';
 
   let isToggled = false;
 
@@ -31,6 +32,9 @@
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem reprehenderit fugiat sed voluptatem nobis aspernatur dolore accusamus atque dolores corporis ullam, totam optio facilis esse maiores inventore, laudantium consequuntur laboriosam!</p>
   </div>
 </BetterAccordion> -->
+
+<Field bind:value={search} label="Search" instructions="Type a name to search" placeholder="first name" />
+<Field value={0} label="Number" type="number" />
 
 <p>Current search: {search}</p>
 <SearchFilter {items} bind:search />
