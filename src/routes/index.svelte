@@ -4,14 +4,20 @@
   import BetterAccordion from '$lib/BetterAccordion.svelte';
   import SearchFilter from '$lib/SearchFilter.svelte';
   import Field from '$lib/Field.svelte';
+  import Markdown from '$lib/Markdown.svelte';
 
   let isToggled = false;
 
   let search = '';
   let items = ['Jack', 'Jon', 'Jill', 'Jane', 'Joe ', 'Jim', 'John', 'Jen'];
+
+  let text = '';
+  $: console.log(text);
 </script>
 
 <h1>Welcome to Levelup UI SvelteKit Components</h1>
+
+<Markdown bind:text />
 
 
 <!-- <Accordion isOpen={true} buttonText={"FAQ: How to reset password?"} >
