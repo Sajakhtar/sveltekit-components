@@ -5,6 +5,7 @@
   import SearchFilter from '$lib/SearchFilter.svelte';
   import Field from '$lib/Field.svelte';
   import Markdown from '$lib/Markdown.svelte';
+  import Portal from '$lib/Portal.svelte';
 
   let isToggled = false;
 
@@ -17,7 +18,9 @@
 
 <h1>Welcome to Levelup UI SvelteKit Components</h1>
 
-<Markdown bind:text />
+<Portal>
+  <Markdown bind:text />
+</Portal>
 
 
 <!-- <Accordion isOpen={true} buttonText={"FAQ: How to reset password?"} >
