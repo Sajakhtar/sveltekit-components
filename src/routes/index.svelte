@@ -7,6 +7,8 @@
   import Markdown from '$lib/Markdown.svelte';
   import Portal from '$lib/Portal.svelte';
   import Modal from  '$lib/Modal.svelte';
+  import Toast from '$lib/toast/Toast.svelte';
+  import { toast } from '$lib/toast/toast';
 
   let isToggled = false;
   let isModalOpen = false;
@@ -56,6 +58,9 @@
     <Field bind:value={search} label="Search" instructions="Type a name to search" placeholder="first name" />
     <Field value={0} label="Number" type="number" />
   </div>
-  </Modal>
+</Modal>
 
 <button on:click={() => isModalOpen = true }>Open Modal Form</button>
+
+<Toast />
+<button on:click={() => (toast.send('New Message!')) }>New Toast</button>
