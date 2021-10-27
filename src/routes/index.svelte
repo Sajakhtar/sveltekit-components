@@ -6,8 +6,10 @@
   import Field from '$lib/Field.svelte';
   import Markdown from '$lib/Markdown.svelte';
   import Portal from '$lib/Portal.svelte';
+  import Modal from  '$lib/Modal.svelte';
 
   let isToggled = false;
+  let isModalOpen = false;
 
   let search = '';
   let items = ['Jack', 'Jon', 'Jill', 'Jane', 'Joe ', 'Jim', 'John', 'Jen'];
@@ -18,9 +20,9 @@
 
 <h1>Welcome to Levelup UI SvelteKit Components</h1>
 
-<Portal>
+<!-- <Portal>
   <Markdown bind:text />
-</Portal>
+</Portal> -->
 
 
 <!-- <Accordion isOpen={true} buttonText={"FAQ: How to reset password?"} >
@@ -47,3 +49,13 @@
 
 <p>Current search: {search}</p>
 <SearchFilter {items} bind:search />
+
+
+<Modal bind:isModalOpen>
+  <div style="background: white; box-shadow: 1px 1px 4px rgba(0,0,0,0.3);">
+    <Field bind:value={search} label="Search" instructions="Type a name to search" placeholder="first name" />
+    <Field value={0} label="Number" type="number" />
+  </div>
+  </Modal>
+
+<button on:click={() => isModalOpen = true }>Open Modal Form</button>
