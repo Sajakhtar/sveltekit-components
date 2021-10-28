@@ -9,7 +9,14 @@ const newToast = () => {
     });
   }
 
-  return { subscribe, send };
+  function remove() {
+    update((state) => {
+      let [first, ...rest] = state;
+      return [...rest];
+    });
+  }
+
+  return { subscribe, send, remove };
 }
 
 

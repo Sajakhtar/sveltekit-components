@@ -1,12 +1,14 @@
 <script>
+  import { fly, fade } from 'svelte/transition';
+  import { flip } from 'svelte/animate';
   import Portal from '../Portal.svelte';
   import { toast } from './toast';
 </script>
 
 <Portal>
   <div class="toast-wrapper">
-    {#each $toast as message}
-      <div class="toast">
+    {#each $toast as message (message)}
+      <div on:click={toast.remove} animate:flip in:fly={{ opacity: 0, x: 100 }} out:fade class="toast">
         <p>
           {message}
         </p>
