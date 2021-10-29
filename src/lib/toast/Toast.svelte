@@ -1,30 +1,34 @@
 <script>
-  import { tweened } from 'svelte/motion';
+  // import { tweened } from 'svelte/motion';
   import { fly, fade } from 'svelte/transition';
   import { flip } from 'svelte/animate';
   import Portal from '../Portal.svelte';
   import { toast } from './toast';
+  import ToastMessage from './ToastMessage.svelte';
 
-  let progress = tweened(0, { duration: 1000 });
+  export let duration;
 
-  async function updateProgress() {
-    const newProgress = Math.random() * 100;
-    await progress.set(newProgress);
-    toast.remove();
-  }
+  // let progress = tweened(0, { duration: 1000 });
+
+  // async function updateProgress() {
+  //   const newProgress = Math.random() * 100;
+  //   await progress.set(newProgress);
+  //   toast.remove();
+  // }
 </script>
 
-<h1>{$progress}</h1>
-<div style={`width: ${$progress}%; height: 10px; background: green;`} />
-<button on:click={updateProgress}>Go</button>
+<!-- <h1>{$progress}</h1> -->
+<!-- <div style={`width: ${$progress}%; height: 10px; background: green;`} /> -->
+<!-- <button on:click={updateProgress}>Go</button> -->
 
 <Portal>
   <div class="toast-wrapper">
     {#each $toast as message (message)}
       <div on:click={toast.remove} animate:flip in:fly={{ opacity: 0, x: 100 }} out:fade class="toast">
-        <p>
+        <!-- <p>
           {message}
-        </p>
+        </p> -->
+        <ToastMessage {message} {duration} />
       </div>
     {/each}
   </div>
@@ -43,9 +47,10 @@
     padding: 20px;
     border-radius: 15px;
     box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    background: white;
   }
 
-  p {
+  /* p {
     margin: 0;
-  }
+  } */
 </style>

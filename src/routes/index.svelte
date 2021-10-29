@@ -62,5 +62,5 @@
 
 <button on:click={() => isModalOpen = true }>Open Modal Form</button>
 
-<Toast />
+<Toast duration={3000} />
 <button on:click={() => (toast.send('New Message!' + Math.random())) }>New Toast</button>
