@@ -53,7 +53,7 @@
 <SearchFilter {items} bind:search />
 
 
-<Modal bind:isModalOpen>
+<Modal bind:isModalOpen background={false}>
   <div style="background: white; box-shadow: 1px 1px 4px rgba(0,0,0,0.3);">
     <Field bind:value={search} label="Search" instructions="Type a name to search" placeholder="first name" />
     <Field value={0} label="Number" type="number" />
