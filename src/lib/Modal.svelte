@@ -15,7 +15,7 @@
 {#if isModalOpen}
   <Portal>
     <div use:clickOutside on:click-outside={closeModal} class="modal-wrapper" transition:fly={{ opacity: 0, y: 100}} >
-      <button on:click={closeModal}  aria-label="Close Modal Box">Close</button>
+      <button on:click={closeModal}  aria-label="Close Modal Box" class="close-btn">Close</button>
       <slot />
     </div>
     {#if background}
@@ -43,5 +43,11 @@
     inset: 0;
     position: fixed;
     z-index: 100;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
   }
 </style>
