@@ -64,3 +64,6 @@
 
 <Toast duration={3000} />
 <button on:click={() => (toast.send('New Message!' + Math.random())) }>New Toast</button>
+<button on:click={() => toast.send('default Message!')}>Toast Default</button>
+<button on:click={() => toast.send('8s Message!', { duration: 8000}) }>8s duration</button>
+<button on:click={() => toast.send('Error Message!', { duration: 5000, type: 'ERROR' }) }>Error Message</button>
