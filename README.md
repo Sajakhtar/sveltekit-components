@@ -7,15 +7,41 @@ Everything you need to build a Svelte project, powered by [`create-svelte`](http
 
 ## JS Plugins
 
-[Storybook.js](https://storybook.js.org/docs/react/get-started/install)
-```bash
-npx sb init
-```
-
 [Marked.js](https://marked.js.org/)
 ```bash
 npm install -g marked
 ```
+
+[Storybook.js](https://storybook.js.org/docs/react/get-started/install)
+
+Storybook is a plugin that allows you to test out things, build components and see them in action  without them having to be inside your application.
+
+
+```bash
+npx sb init
+```
+Change `./.storybook/main.js` to `./.storybook/main.cjs`.
+Change `./.storybook/preview.js` to `./.storybook/preview.cjs`.
+
+`.cjs` stands for common JS to allow `require` module syntax.
+
+Remove the `Svelte options` from `./.storybook/main.cjs`.
+
+```js
+// Remove this
+"svelteOptions": {
+  "preprocess": require("../svelte.config.js").preprocess
+}
+```
+
+To run Storybook
+```bash
+  npm run storybook
+```
+This will open the following URL in the browser: http://localhost:6006/?path=/story/example-introduction--page
+
+With the `@storybook/addon-svelte-csf` addon in ./.storybook/main.cjs`, we can write stories in svelte language in the `./stories` directory or files with stories extension. Storybook looks for files with the story extentions e.g. `.stories.js`.
+
 
 
 ## Creating a project
