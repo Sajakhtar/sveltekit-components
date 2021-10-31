@@ -1,6 +1,22 @@
-# create-svelte
+# Sveltekit Components
+
+Courtesy of [LevelUpTutorial by Scott Tolinski](https://leveluptutorials.com/tutorials/building-svelte-components/getting-started)
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+
+
+## JS Plugins
+
+[Storybook.js](https://storybook.js.org/docs/react/get-started/install)
+```bash
+npx sb init
+```
+
+[Marked.js](https://marked.js.org/)
+```bash
+npm install -g marked
+```
+
 
 ## Creating a project
 
