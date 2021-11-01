@@ -42,7 +42,21 @@ This will open the following URL in the browser: http://localhost:6006/?path=/st
 
 With the `@storybook/addon-svelte-csf` addon in ./.storybook/main.cjs`, we can write stories in svelte language in the `./stories` directory or files with stories extension. Storybook looks for files with the story extentions e.g. `.stories.js`.
 
+## Creating a NPM package with Svelte
 
+Everything in the `./lib` folder is made available as a package.
+Everything in the `./routes` folder is seen as the documentation for the package.
+
+Add `"package": "svelte-kit package",` to `scripts` in `package.json`
+
+```bash
+npm run package
+```
+This will create a `./package` directory with all the components, including a `package.json` that will have all the components as exports. Then you'd have to `npm publish package` to publish it.
+
+Prequisites:
+- `npm i svelte2tsx`
+- `npm i typescript`
 
 ## Creating a project
 
